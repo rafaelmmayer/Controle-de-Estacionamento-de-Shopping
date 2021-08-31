@@ -27,8 +27,8 @@ GitHub Pages: https://rafaelmmayer.github.io/Controle-de-Estacionamento-de-Shopp
 
 ## Desenvolvedores
 
-- [Felipe Barão Astolfo]()
-- [Guilherme Araujo Alexandre]()
+- [Felipe Barão Astolfo](https://github.com/FelipeBarao)
+- [Guilherme Araujo Alexandre](https://github.com/Guilherme-A-A)
 - [Johnny Richard Decreci Missia De Souza]()
 - [Lucca Gonçalves Silva Battaglin Pereira]()
 - [Rafael Martini Mayer](https://github.com/rafaelmmayer)

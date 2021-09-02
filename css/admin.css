@@ -32,14 +32,14 @@ main {
     margin-right: 100px;
 }
 
-.table-resumo {
+.tabela-resumo {
     margin: 50px 100px;
     background: whitesmoke;
     border-collapse: collapse;
     font-size: 0.9em;
 }
 
-.table-resumo thead tr {
+.tabela-resumo thead tr {
     background-color: #009879;
     color: #ffffff;
     text-align: left;
@@ -48,12 +48,12 @@ main {
     top: 0;
 }
 
-.table-resumo th,
-.table-resumo td {
+.tabela-resumo th,
+.tabela-resumo td {
   padding: 12px 15px;
 }
 
-.table-resumo tbody tr {
+.tabela-resumo tbody tr {
     border-bottom: 1px solid #dddddd;
 }
 

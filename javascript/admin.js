@@ -13,7 +13,7 @@ let cars = [
     },
 ]
 
-let tableResumo = document.getElementById('table-body')
+let tableResumo = document.getElementById('tabela-corpo')
 
 cars.forEach(obj => {
     let template = `

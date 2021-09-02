@@ -36,7 +36,9 @@ header {
 }
 
 nav h2 a {
-    margin-left: 100px;
+    display: flex;
+    text-align: center;
+    margin-left: 50px;
     font-weight: bold;
     color: whitesmoke;
     text-decoration: none;
@@ -51,6 +53,7 @@ nav h2 a {
 .nav-links li {
     padding: 0 30px;
     list-style: none;
+    text-align: center;
 }
 
 .nav-links li a {

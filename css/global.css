@@ -10,55 +10,7 @@
 body{
     background: #d6e3ec;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-header {
-    margin: 20px;
-}
-
-.titulo {
-    height: 100px;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 50px;
-}
-
-.nav-bar {
-    border-radius: 15px;
-    background: #24252a;
-    display: flex;
-    height: 80px;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 5px 5px 15px #777;
-}
-
-nav h2 a {
-    display: flex;
-    text-align: center;
-    margin-left: 50px;
-    font-weight: bold;
-    color: whitesmoke;
-    text-decoration: none;
-}
-
-.nav-links {
-    display: flex;
-    justify-content: space-between;
-    margin-right: 100px;
-}
-
-.nav-links li {
-    padding: 0 30px;
-    list-style: none;
-    text-align: center;
-}
-
-.nav-links li a {
-    text-decoration: none;
-    color: whitesmoke;
+    margin: 20px 0;
 }
 
 

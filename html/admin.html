@@ -12,16 +12,19 @@
         <div class="infos-gerais">
             <div class="lucro">
                 <span>Lucro</span>
-                <span>Lucro</span>
+                <span id="lucroTotal">0</span>
             </div>
-            <div class="qtd-entrou">
-                <span>Entrou</span>
+            <div>
+                <span>Pagos</span>
+                <span id="qtdPagos">0</span>
             </div>
-            <div class="qtd-saiu">
-                <span>Saiu</span>
+            <div>
+                <span>Não pagos</span>
+                <span id="qtdNaoPagos">0</span>
             </div>
-            <div class="outro">
-                <span>Outro</span>
+            <div class="total">
+                <span>Total</span>
+                <span id="qtdTotal">0</span>
             </div>            
         </div>
         <table class="tabela-resumo">
@@ -30,7 +33,9 @@
                     <th>Placa</th>
                     <th>Data de entrada</th>
                     <th>Data de saída</th>
+                    <th>Ticket</th>
                     <th>Status Ticket</th>
+                    <th>Valor pago</th>
                 </tr>
             </thead>
             <tbody id="tabela-corpo">             

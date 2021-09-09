@@ -22,6 +22,17 @@ main {
     background: whitesmoke;
 }
 
+.info-header {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 20px;
+}
+
+.info {
+    font-size: 20px;
+    margin: 20px;
+}
+
 .lucro {
     margin-left: 100px;    
 }

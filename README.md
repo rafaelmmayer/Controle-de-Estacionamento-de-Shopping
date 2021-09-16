@@ -30,7 +30,7 @@ GitHub Pages: https://rafaelmmayer.github.io/Controle-de-Estacionamento-de-Shopp
 - [Felipe Barão Astolfo](https://github.com/FelipeBarao)
 - [Guilherme Araujo Alexandre](https://github.com/Guilherme-A-A)
 - [Johnny Richard Decreci Missia De Souza](https://github.com/johnnyqwe123)
-- [Lucca Gonçalves Silva Battaglin Pereira]()
+- [Lucca Gonçalves Silva Battaglin Pereira](https://github.com/LuccaPereira)
 - [Rafael Martini Mayer](https://github.com/rafaelmmayer)
 - [Welington Ferreira da Silva]()
 

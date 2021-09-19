@@ -6,14 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../css/caixa-cobranca.css" media="screen" />
     <title>Caixa de Cobrança</title>
-</head>
+
+    <element>Data: 15/09/2021<br> 
+        Hora: 22:00    </id>
+    </element>
+
+    </head>
 <body>
     <section="" class="Caixa de Pagamento">
         <div class="info-header">
             <h2 class="title">Pague o estacionamento</h2>
             <p>
-                <span class="text-desktop">Preencha o campo abaixo para pagar o ticket do seu estacionamento</span>
-                <span class="text-mobile">Pague o ticket do estacionamento pelo celular:</span>
+                Preencha o campo abaixo para pagar o ticket do seu estacionamento
             </p>
             <div class="barcode-holder"></div>
             <div class="text-holder"></div>
@@ -23,14 +27,48 @@
         <div class="form-group">
             <button type="submit" id="submitForm" class="btn btn-success large">Verificar</button>
         </div>
-        <h5>O ticket digitado ainda nao foi pago.</h5>
+        <p>
+            <div>Tempo total de uso do estacionamento: 99:99</div>
+            <div>
+                <p> Valores:
+                    <ul>
+                        <li>15 minutos de estadia não é cobrado.</li>
+                        <li>Até 3 horas: R$12,00</li>
+                        <li>Demais horas: R$1,00</li>
+                        <li>Pernoite: R$40,00 + Tempo de permanência (R$12,00 a cada 1 hora).</li>
+                    </ul>
+                </p>
+            </div> 
+            <div>Valor a ser pago: R$9999,99</div>
+        </p>
+        <div class="form-group">
+            <button 
+            type="submit" id="submitForm" class="btn btn-success large">Efetivar Pagamento
+        </button>
+        </div>
+        <br>
+        <table class="tabela-resumo">
+            <thead>
+                <tr>
+                    <th>Ticket</th>
+                    <th>Status Ticket</th>
+                    <th>Valor pago</th>
+                </tr>
+            </thead>
+            <tbody 
+                id="tabela-corpo">             
+            </tbody>
+        </table>
+        <br>
             <div class="holder-scanner">
                 <div class="close">Fechar</div>
                 <div class="input-group">
                     <div id="inputBarcode" style="position: relative;"></div>
-                        <div class="line"></div>
+                    <div class="line"></div>
                 </div>
             </div>
     </section>
+    <script type="text/javascript" src="./carros.json"></script>
+    <script src="../javascript/caixa-cobranca.js"></script>
 </body>
 </html>

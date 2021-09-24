@@ -10,7 +10,7 @@ let cars = [
         "ticket": "0522ASD4174",
         "ticketStatus": "Pago",
         "valorPago": 10.29
-    },
+    }, 
     {
         "placa": "DFR-6575",
         "dataEntrada": "Thu Sep 02 2021 08:12:48 GMT-0300",

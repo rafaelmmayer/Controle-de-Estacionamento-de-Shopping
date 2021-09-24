@@ -1,35 +1,49 @@
 <!DOCTYPE html>
-<html >
+<html>
+<head>
         <meta charset = "UTF-8">
         <title>Sistema de entrada</title>
-        <link rel="stylesheet" href = "../css/cabine-entrada.css">
+        <link rel="stylesheet" href = "../css/style.css">
+        <script type="text/javascript">
+                function cadastrar () {
+                        var placaCarro = Placa.cadastro.value;
 
-<head>
-        <element id= "data">Data: 10/03/2001<br> 
-                            Hora: 12:30    </id>
-
-
-
-
-
-
+                        if (placaCarro != NaN || cadastro.lenght != 7) {
+                                alert("Quantidade de caracteres invalida");
+                                placa.cadastro.focus();
+                                return false;
+                        }
+                }   
+        </script>
 </head>
-
-
 <body>
-                    
-        <h2>Estacionamento</h2>
-        Digite sua placa: <br>
-        <input type = "text" placeholder="ABC1D23"/>
-        <button type = "button"> Gerar ticket</button><br><br><br><br><br><br><br><br>
 
-       <div><p id= "ticket"><strong>Ticket: <em>S0D0MABC1D23<br><br>horario de entrada: 13:50</em></strong> </p></div>
+        <header class="header">
+                <img src="..\img\logo.png" alt="Logo">
+                <nav>
+                        <ul>
+                                <li><p>Data: 10/03/2001</p></li>
+                                <li><p>Hora: 12:30</p></li>
+                        </ul>
+                </nav>
+                
+        </header>
+        
+        <div class="background">
+                <img src="..\img\corsinhaRebaixado.jpg" alt="Background">
+       </div> 
+
+
+        <div class="estacionamento">
+                <h1>Estacionamento</h1>
+                <h4>Digite a placa do seu veículo:</h4><br>
+                <form class= "placa" name="Placa" action=".\ticket-Entrada.html" method="POST">
+                        cadastro: <input type="text" placeholder="ABC1D23"/>
+                        <input type ="submit" onclick="return cadastrar()">
+                </form>        
+        </div>
         
 
-
-
-
-
+       
 </body>
-
 </html>

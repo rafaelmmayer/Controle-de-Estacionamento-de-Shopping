@@ -1,5 +1,67 @@
-/*@import url(global.css);*/
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    vertical-align: baseline;
+    list-style: none;
+}
 
+body{
+    background: #d6e3ec;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    background: #009879;
+    font-size: 25px;
+    color: #ffffff;
+}
+
+header img{
+    width: 10vh;
+    height: 10vh;
+}
+
+section{
+    display: grid;
+    margin: 20px 0;
+}
+
+.title{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 25px;
+    padding: 10px;
+
+}
+
+.tabela-resumo {
+    margin: 50px 100px;
+    background: whitesmoke;
+    border-collapse: collapse;
+    font-size: 0.9em;
+}
+
+.tabela-resumo thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+    position: sticky;
+    top: 0;
+}
+
+.tabela-resumo th,
+.tabela-resumo td {
+  padding: 12px 15px;
+}
+
+.tabela-resumo tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
 table, th, td {
     border:1px solid black;
 }

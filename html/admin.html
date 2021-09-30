@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pr-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,7 +8,22 @@
     <link rel="stylesheet" type="text/css" href="../css/admin.css" media="screen" />
     <title>Admin</title>
 </head>
+
 <body>
+    <header>
+        <img src="..\img\logo.png" alt="Logo">
+        <span>Sistema de Gerenciamento</span>
+        <nav>
+            <ul>
+                <li>
+                    <p>Data: 10/03/2001</p>
+                </li>
+                <li>
+                    <p>Hora: 12:30</p>
+                </li>
+            </ul>
+        </nav>
+    </header>
     <main>
         <div class="infos-gerais">
             <div class="lucro">
@@ -25,7 +41,7 @@
             <div class="total">
                 <span class="info-header">Total</span>
                 <span class="info" id="qtdTotal">0</span>
-            </div>            
+            </div>
         </div>
         <table class="tabela-resumo">
             <thead>
@@ -38,7 +54,7 @@
                     <th>Valor pago</th>
                 </tr>
             </thead>
-            <tbody id="tabela-corpo">             
+            <tbody id="tabela-corpo">
             </tbody>
         </table>
         <br>
@@ -46,4 +62,5 @@
     <script type="text/javascript" src="../carros.json"></script>
     <script src="../javascript/admin.js"></script>
 </body>
+
 </html>

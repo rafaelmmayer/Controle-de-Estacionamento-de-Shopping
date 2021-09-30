@@ -10,11 +10,26 @@
 body{
     background: #d6e3ec;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 20px 0;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    background: #009879;
+    font-size: 25px;
+    color: #ffffff;
+}
+
+header img{
+    width: 10vh;
+    height: 10vh;
 }
 
 main {
     display: grid;
+    margin: 20px 0;
 }
 
 .infos-gerais {

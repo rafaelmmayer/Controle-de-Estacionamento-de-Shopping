@@ -66,6 +66,126 @@ let cars = [
         "ticket": "CDVS456DS65",
         "ticketStatus": "Pago",
         "valorPago": 28.45
+    },
+    {
+        "placa": "JRG-0851",
+        "dataEntrada": "Thu Sep 02 2021 08:12:48 GMT-0300",
+        "dataSaida": "",
+        "ticket": "WEF4F4E54E8",
+        "ticketStatus": "Não pago",
+        "valorPago": 0
+    },
+    {
+        "placa": "MXV-8546",
+        "dataEntrada": "Thu Sep 02 2021 08:12:48 GMT-0300",
+        "dataSaida": "",
+        "ticket": "G5491REERG4",
+        "ticketStatus": "Não pago",
+        "valorPago": 0
+    },
+    {
+        "placa": "MOA-5796",
+        "dataEntrada": "Thu Sep 02 2021 08:12:48 GMT-0300",
+        "dataSaida": "Thu Sep 02 2021 19:36:48 GMT-0300",
+        "ticket": "CDVS456DS65",
+        "ticketStatus": "Pago",
+        "valorPago": 28.45
+    },
+    {
+        "placa": "JRG-0851",
+        "dataEntrada": "Thu Sep 02 2021 08:12:48 GMT-0300",
+        "dataSaida": "",
+        "ticket": "WEF4F4E54E8",
+        "ticketStatus": "Não pago",
+        "valorPago": 0
+    },
+    {
+        "placa": "MXV-8546",
+        "dataEntrada": "Thu Sep 02 2021 08:12:48 GMT-0300",
+        "dataSaida": "",
+        "ticket": "G5491REERG4",
+        "ticketStatus": "Não pago",
+        "valorPago": 0
+    },
+    {
+        "placa": "MOA-5796",
+        "dataEntrada": "Thu Sep 02 2021 08:12:48 GMT-0300",
+        "dataSaida": "Thu Sep 02 2021 19:36:48 GMT-0300",
+        "ticket": "CDVS456DS65",
+        "ticketStatus": "Pago",
+        "valorPago": 28.45
+    },
+    {
+        "placa": "JRG-0851",
+        "dataEntrada": "Thu Sep 02 2021 08:12:48 GMT-0300",
+        "dataSaida": "",
+        "ticket": "WEF4F4E54E8",
+        "ticketStatus": "Não pago",
+        "valorPago": 0
+    },
+    {
+        "placa": "MXV-8546",
+        "dataEntrada": "Thu Sep 02 2021 08:12:48 GMT-0300",
+        "dataSaida": "",
+        "ticket": "G5491REERG4",
+        "ticketStatus": "Não pago",
+        "valorPago": 0
+    },
+    {
+        "placa": "MOA-5796",
+        "dataEntrada": "Thu Sep 02 2021 08:12:48 GMT-0300",
+        "dataSaida": "Thu Sep 02 2021 19:36:48 GMT-0300",
+        "ticket": "CDVS456DS65",
+        "ticketStatus": "Pago",
+        "valorPago": 28.45
+    },
+    {
+        "placa": "JRG-0851",
+        "dataEntrada": "Thu Sep 02 2021 08:12:48 GMT-0300",
+        "dataSaida": "",
+        "ticket": "WEF4F4E54E8",
+        "ticketStatus": "Não pago",
+        "valorPago": 0
+    },
+    {
+        "placa": "MXV-8546",
+        "dataEntrada": "Thu Sep 02 2021 08:12:48 GMT-0300",
+        "dataSaida": "",
+        "ticket": "G5491REERG4",
+        "ticketStatus": "Não pago",
+        "valorPago": 0
+    },
+    {
+        "placa": "MOA-5796",
+        "dataEntrada": "Thu Sep 02 2021 08:12:48 GMT-0300",
+        "dataSaida": "Thu Sep 02 2021 19:36:48 GMT-0300",
+        "ticket": "CDVS456DS65",
+        "ticketStatus": "Pago",
+        "valorPago": 28.45
+    },
+    {
+        "placa": "JRG-0851",
+        "dataEntrada": "Thu Sep 02 2021 08:12:48 GMT-0300",
+        "dataSaida": "",
+        "ticket": "WEF4F4E54E8",
+        "ticketStatus": "Não pago",
+        "valorPago": 0
+    },
+    {
+        "placa": "MXV-8546",
+        "dataEntrada": "Thu Sep 02 2021 08:12:48 GMT-0300",
+        "dataSaida": "",
+        "ticket": "G5491REERG4",
+        "ticketStatus": "Não pago",
+        "valorPago": 0
+    },
+    {
+        "placa": "MOA-5796",
+        "dataEntrada": "Thu Sep 02 2021 08:12:48 GMT-0300",
+        "dataSaida": "Thu Sep 02 2021 19:36:48 GMT-0300",
+        "ticket": "CDVS456DS65",
+        "ticketStatus": "Pago",
+        "valorPago": 28.45
     }
 ]
 
@@ -112,8 +232,6 @@ cars.forEach(obj => {
     if(obj["ticketStatus"] === "Pago"){
         qtdPagos += 1
     }
-
-    console.log(valorTotal(obj["dataSaida"], obj["dataEntrada"]))
 })
 
 lucroEl.innerHTML = "R$ " + lucroTotal.toFixed(2)

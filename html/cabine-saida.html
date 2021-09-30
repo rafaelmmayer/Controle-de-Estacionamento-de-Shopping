@@ -1,35 +1,32 @@
 <!DOCTYPE html>
-<html >
-        <meta charset = "UTF-8">
-        <title>Sistema de entrada</title>
-        <link rel="stylesheet" href = "style.css">
 
+<html lang="pt-BR">
 <head>
-        <element id= "data">Data: 10/03/2001<br> 
-                            Hora: 12:30    </id>
-
-
-
-
-
-
+        <meta charset="UTF-8">
+        <title>Sistema De Entrada</title>
+        <link rel="stylesheet" href="../css/cabine-saida.css">
 </head>
 
-
 <body>
-                    
-        <h2>Estacionamento</h2>
-        Digite o Ticket: <br>
-        <input type = "text" placeholder="ABC1D23"/>
-        <button type = "button"> Confirmar</button><br><br><br><br><br><br><br><br>
+        <section class=data>
+                <element id="data">Data: 10/03/2021</element>
+                <span>Hora: 12:30</span>
+        </section>
 
-       <div><p id= "ticket"><strong>Ticket: <em>S0D0MABC1D23<br><br>horario de saida: 13:50</em></strong> </p></div>
-        
+        <h2>ESTACIONAMENTO</h2>
 
+        <form action="#">
+                <label class="label" for="ticket">
+                    <span class="element">Digite o ticket:</span>
+                    <input class="element" type="ticket" id="ticket" placeholder="ABC1D23" name="ticket">
+                </label>
 
+        <input class="btn" type="submit" value="Sign Up">       
+        </form>
 
-
-
+        <footer> 
+        <p id= "ticket">Ticket: S0D0MABC1D23</p> 
+        <span>horario de saida: 13:50</span>
+        </footer>       
 </body>
-
 </html>

@@ -1,23 +1,76 @@
-#data {
-    font-size: x-large;
-    height: 50%;
- 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: "Bebas Neue";
+}
+
+.data {
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    text-align: center;
+    background-color: rgb(14, 14, 14);
+    font-size: 45px;
+}
+
+h2 {
+    font-size: 85px;
+    color: white;
+    text-align: center;
+}
+
+body {
+    background-color: rgb(70, 65, 65);
+}
+
+form {
+
+    margin-left: 585px;
+    background-color: rgba(216, 216, 216, 0.986);
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    left:50%;
+	top:50%;
+    border-radius: 12px;
+    height: 100px;
+    width: 300px;
     
-
 }
 
-body{
-    font-size:xx-large;
-    padding-top: 200px;
-    font-family: 'Times New Roman', Times, serif;
+.label {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
 }
-#ticket { 
-    padding-bottom: 20px;
-    margin-left: 770px;
-    text-align: center;
-    border: 3px solid;
-    font-size: x-large;
-    width: 350px;
 
+.element  {
+    outline: none;
+    margin-top: 5px;
+    border-radius: 12px;
+    width: 280px;
+    text-align: center;
+    margin-left: 10px;
+}
+
+label input {
+    padding: 0 0.5rem;
+    color: #10141b;
+    border: 2px solid #10141b;
+}
+
+.btn {
+    border-radius: 12px;
+    margin-top: 5px;
+}
+
+footer {
+    text-align: center;
 }

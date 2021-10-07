@@ -12,7 +12,9 @@
 
         <header class="header">
                 <img src="C:\Users\lucca_yfec\Downloads\Programação e arquivo relacionados\trabalhoPI2\Controle-de-Estacionamento-de-Shopping\img\logo.png" alt="Logo">
-                <h1>Cabine de saida</h1>
+                <div class="entrada">
+                        <h1>Cabine de entrada</h1>
+                </div>
                 <nav>
                         <ul>
                                 <div class = "hora">
@@ -23,16 +25,15 @@
                 </nav>
                 
         </header>
-        
 
-        <div class="estacionamento">
-                <div class="veiculo">
-                        <h2>Digite a placa do seu veículo:</h2><br>
-                </div>
-                <form class= "placa" name="Placa" action="C:\Users\lucca_yfec\Downloads\Programação e arquivo relacionados\trabalhoPI2\Controle-de-Estacionamento-de-Shopping\html\ticket-Entrada.html" method="POST">
-                        <input class="input" type="text" placeholder="ABC1D23"/><br><br>
-                        <button class="button1" type ="submit" onclick="return cadastrar()">Cadastrar</button>
-                </form>        
+        <div class="caixa">
+                <div class="estacionamento">
+                        <div class="puts">
+                                <h2>Digite a placa do seu veículo:</h2><br><br>
+                                <input class="input" type="text" placeholder="ABC1D23"/><br><br>
+                                <a href="ticket-Entrada.html"><button class="bnt" type="submit"><span>Cadastrar</span></button></a>
+                        </div>
+                </div>        
         </div>
         
 

@@ -13,49 +13,44 @@
         <span>Caixa de Cobrança</span>
         <nav>
             <ul>
-                <li>
-                    <p>Data: 10/03/2001</p>
-                </li>
-                <li>
-                    <p>Hora: 12:30</p>
-                </li>
+                <p>Data: 10/03/2001</p>
+            </ul>
+            <ul>
+                <p>Hora: 12:30</p>
             </ul>
         </nav>
     </header>
+
     <section="" class="Caixa de Pagamento">
         <div class="info-header">
             <h2 class="title">Pague o estacionamento</h2>
-            <p>
-                Preencha o campo abaixo para pagar o ticket do seu estacionamento
-            </p>
+            <p>Preencha o campo abaixo para pagar o ticket do seu estacionamento</p><br>
             <div class="barcode-holder"></div>
             <div class="text-holder"></div>
             <div class="payment-option"></div>
             <input autocomplete="off" name="ticketNumber" id="ticketNumber" type="text" placeholder="Digite aqui o número do seu ticket" pattern="[0-9]*" inputmode="numeric" mask="0000000000-00" required="" class="form-control ng-pristine ng-invalid ng-touched">
-        </div>
-        <div class="form-group">
+            <element class="btn">
             <button type="submit" id="submitForm" class="btn btn-success large">Verificar</button>
+            </element>
         </div>
-        <p>
-            <div>Tempo total de uso do estacionamento: 99:99</div>
-            <div>
-                <p> Valores:
-                    <ul>
-                        <li>15 minutos de estadia não é cobrado.</li>
-                        <li>Até 3 horas: R$12,00</li>
-                        <li>Demais horas: R$1,00</li>
-                        <li>Pernoite: R$40,00 + Tempo de permanência (R$12,00 a cada 1 hora).</li>
-                    </ul>
-                </p>
-            </div> 
-            <div>Valor a ser pago: R$9999,99</div>
-        </p>
+
+        <p>Tempo total de uso do estacionamento: 99:99</p>
+        <element class="valores">
+            <p> Valores:
+                <ul>
+                    <li>15 minutos de estadia não é cobrado.</li>
+                    <li>Até 3 horas: R$12,00</li>
+                    <li>Demais horas: R$1,00</li>
+                    <li>Pernoite: R$40,00 + Tempo de permanência (R$12,00 a cada 1 hora).</li>
+                </ul>
+            </p>
+        </element>
+            <div>Valor a ser pago: R$9999,99</div><br>
+
         <div class="form-group">
-            <button 
-            type="submit" id="submitForm" class="btn btn-success large">Efetivar Pagamento
-        </button>
+        <button type="submit" id="submitForm" class="btn btn-success large">Efetivar Pagamento</button>
         </div>
-        <br>
+
         <table class="tabela-resumo">
             <thead>
                 <tr>
@@ -68,15 +63,8 @@
                 id="tabela-corpo">             
             </tbody>
         </table>
-        <br>
-            <div class="holder-scanner">
-                <div class="close">Fechar</div>
-                <div class="input-group">
-                    <div id="inputBarcode" style="position: relative;"></div>
-                    <div class="line"></div>
-                </div>
-            </div>
     </section>
+
     <script type="text/javascript" src="./carros.json"></script>
     <script src="../javascript/caixa-cobranca.js"></script>
 </body>

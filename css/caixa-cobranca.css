@@ -13,16 +13,19 @@ header{
     background: #009879;
     font-size: 25px;
     color: #ffffff; 
+
 }
 
 header img{
-    width: 9vh;
+    width: 8vh;
     height: 10vh;
+
 }
 
 section{
     display: grid;
     margin: 20px 0;
+
 }
 
 .title{
@@ -36,17 +39,63 @@ section{
     background: rgb(214,227,236);
     font-size: 25px;
     padding: 20px;
+
 }
 
-.btn{
-    padding: 3px;
-    font-size: 12px;
-    background-color: #0e9224;
+.form {
+    align-items: center;
+    box-shadow: .3rem .4rem 2px rgb(0,0,0, .4);
+    padding-top: 10px;
+    background-color: rgba(255, 255, 255, 0.986);
+    display: flex;
+    flex-direction: column;
     border-radius: 12px;
-    text-shadow: .3rem .4rem 2px rgb(0,0,0, 0.1);
-    justify-content: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    height: 140px;
+    width: 300px;
+    margin-top: 1%;
+    margin-left: 42%;
+
+}
+
+.label {
+    
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+
+}
+
+.element  {
+    outline: none;
+    margin-top: 5px;
+    border-radius: 12px;
+    text-align: center;
+
+}
+
+label input {
+    padding: 0 0.5rem;
+    color: #10141b;
+    border: 2px solid #10141b;
+    text-align: center;
+
+}
+
+.btn {
+    background-color: rgb(14, 146, 36);
+    height: 40px;
+    width: 120px;
+    border-radius: 12px;
+    margin-top: 30px;
+    cursor: pointer;
     color: white;
+    
+}
+
+.btn:hover {
+    background-color: rgb(14, 146, 36);
+    transition-duration: 500ms ;
+
 }
 
 .valores {
@@ -55,18 +104,27 @@ section{
     align-items: baseline;
     background: whitesmoke;
     border-collapse: separate;
-    font-size: 0.9em;	
+    font-size: 0.9em;
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    height: 200px;
+    width: 360px;
+    left: 1400px; 
+    top: 400px;
+	
 }
 
 .tabela-resumo {
     position: fixed;
-    left: 1300px; 
+    left: 50px; 
 	top: 160px;
     align-items: baseline;
     margin: 50px 100px;
     background: whitesmoke;
     border-collapse: collapse;
     font-size: 0.9em;
+
 }
 
 .tabela-resumo thead tr {
@@ -76,16 +134,21 @@ section{
     font-weight: bold;
     position: sticky;
     top: 0;
+
 }
 
 .tabela-resumo th,
 .tabela-resumo td {
   padding: 12px 15px;
+
 }
 
 .tabela-resumo tbody tr {
     border-bottom: 1px solid #dddddd;
+
 }
+
 table, th, td {
     border:1px solid black;
+    
 }

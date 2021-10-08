@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="pr-br">
 <head>
     <meta charset="UTF-8">
@@ -23,18 +24,23 @@
 
     <section="" class="Caixa de Pagamento">
         <div class="info-header">
-            <h2 class="title">Pague o estacionamento</h2>
-            <p>Preencha o campo abaixo para pagar o ticket do seu estacionamento</p><br>
-            <div class="barcode-holder"></div>
-            <div class="text-holder"></div>
-            <div class="payment-option"></div>
-            <input autocomplete="off" name="ticketNumber" id="ticketNumber" type="text" placeholder="Digite aqui o número do seu ticket" pattern="[0-9]*" inputmode="numeric" mask="0000000000-00" required="" class="form-control ng-pristine ng-invalid ng-touched">
-            <element class="btn">
-            <button type="submit" id="submitForm" class="btn btn-success large">Verificar</button>
-            </element>
-        </div>
+            <h2 class="title">Pague o estacionamento</h2>  
 
-        <p>Tempo total de uso do estacionamento: 99:99</p>
+            <form class="form" action="#">
+                <label class="label" for="ticket">
+                    <span class="element">Preencha o campo abaixo para pagar o ticket do seu estacionamento</span><br><br>
+                    <input autocomplete="off" name="ticketNumber" id="ticketNumber" type="text" placeholder="Digite aqui o seu ticket" pattern="[0-9]*" inputmode="numeric" mask="0000000000-00" required="" class="form-control ng-pristine ng-invalid ng-touched">
+                </label>
+
+            <button class="btn" type="submit" onclick="return" >Verificar</button><br><br>
+            
+            <span class="tempo">Tempo de uso do estacionamento: 99:99</span><br>
+            <span class="mensagem">Valor a ser pago: R$9999,99</span><br>
+
+            <div class="form-group">
+                <button type="submit" id="submitForm" class="btn btn-success large">Efetivar Pagamento</button>
+            </div>
+        </div>
         <element class="valores">
             <p> Valores:
                 <ul>
@@ -45,11 +51,6 @@
                 </ul>
             </p>
         </element>
-            <div>Valor a ser pago: R$9999,99</div><br>
-
-        <div class="form-group">
-        <button type="submit" id="submitForm" class="btn btn-success large">Efetivar Pagamento</button>
-        </div>
 
         <table class="tabela-resumo">
             <thead>

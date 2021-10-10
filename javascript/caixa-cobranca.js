@@ -1,3 +1,4 @@
+let lucroTotal = 0
 let qtdPagos = 0
 let qtdNaoPagos = 0
 

@@ -2,6 +2,7 @@ body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: left;
     background: #d6e3ec;
+
 }
 
 header{
@@ -11,8 +12,12 @@ header{
     text-align: center;
     padding: 10px;
     background: #009879;
-    font-size: 25px;
+    font-size: 20px;
     color: #ffffff; 
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
 
 }
 
@@ -53,7 +58,8 @@ section{
     height: 140px;
     width: 300px;
     margin-top: 1%;
-    margin-left: 42%;
+    margin-left: 40%;
+    position: fixed;
 
 }
 
@@ -99,7 +105,7 @@ label input {
 }
 
 .valores {
-    position: absolute;
+    position: fixed;
 	top: 700px;
     align-items: baseline;
     background: whitesmoke;
@@ -110,14 +116,14 @@ label input {
     border-radius: 12px;
     height: 200px;
     width: 360px;
-    left: 1400px; 
-    top: 400px;
+    left: 100px; 
+    top: 250px;
 	
 }
 
 .tabela-resumo {
     position: fixed;
-    left: 50px; 
+    left: 1000px; 
 	top: 160px;
     align-items: baseline;
     margin: 50px 100px;

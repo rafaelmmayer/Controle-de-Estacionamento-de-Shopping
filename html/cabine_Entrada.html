@@ -4,9 +4,7 @@
         <meta charset = "UTF-8">
         <title>Sistema de entrada</title>
         <link rel="stylesheet" href = "../css/style.css">
-        <script type="text/javascript">
-               
-        </script>
+        
 </head>
 <body>
 
@@ -30,8 +28,10 @@
                 <div class="estacionamento">
                         <div class="puts">
                                 <h2>Digite a placa do seu veículo:</h2><br><br>
-                                <input class="input" type="text" placeholder="ABC1D23"/><br><br>
-                                <a href="ticket-Entrada.html"><button class="bnt" type="submit"><span>Cadastrar</span></button></a>
+                                <form action="">
+                                        <input id="nome" name="nome" type="text" placeholder="ABC1D23"/><br><br>
+                                </form>
+                                <a href="ticket-Entrada.html"><button class="bnt" type="buttton" onclick="bntvalid(placa)">Cadastrar</button></a>
                         </div>
                 </div>        
         </div>
@@ -39,4 +39,5 @@
 
        
 </body>
+<script href="cabine_e_ticket.js"></script>
 </html>

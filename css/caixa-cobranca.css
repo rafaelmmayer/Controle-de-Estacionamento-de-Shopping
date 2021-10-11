@@ -1,8 +1,9 @@
 body{
+    margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: left;
-    background: #d6e3ec;
-
+    background: #3d3d3d;
+    color: #ffffff;
 }
 
 header{
@@ -11,7 +12,7 @@ header{
     align-items: center;
     text-align: center;
     padding: 10px;
-    background: #009879;
+    background: #389dff;
     font-size: 20px;
     color: #ffffff; 
     margin: 0;
@@ -41,17 +42,18 @@ section{
     justify-content: center;
     border: 1px solid rgb(214, 227, 236);
     border-radius: 10px;
-    background: rgb(214,227,236);
+    background: #3d3d3d;
+    color: #ffffff;
     font-size: 25px;
     padding: 20px;
-
+    margin: 20px;
 }
 
 .form {
     align-items: center;
     box-shadow: .3rem .4rem 2px rgb(0,0,0, .4);
     padding-top: 10px;
-    background-color: rgba(255, 255, 255, 0.986);
+    background-color: #389dff;
     display: flex;
     flex-direction: column;
     border-radius: 12px;
@@ -82,7 +84,7 @@ section{
 label input {
     padding: 0 0.5rem;
     color: #10141b;
-    border: 2px solid #10141b;
+    border: 2px solid #3d3d3d;
     text-align: center;
 
 }
@@ -108,7 +110,7 @@ label input {
     position: fixed;
 	top: 700px;
     align-items: baseline;
-    background: whitesmoke;
+    background: #389dff;
     border-collapse: separate;
     font-size: 0.9em;
     display: flex;
@@ -127,14 +129,15 @@ label input {
 	top: 160px;
     align-items: baseline;
     margin: 50px 100px;
-    background: whitesmoke;
+    background: #ffffff;
+    color: #3d3d3d;
     border-collapse: collapse;
     font-size: 0.9em;
 
 }
 
 .tabela-resumo thead tr {
-    background-color: #009879;
+    background-color: #389dff;
     color: #ffffff;
     text-align: left;
     font-weight: bold;

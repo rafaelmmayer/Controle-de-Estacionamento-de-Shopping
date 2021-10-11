@@ -8,23 +8,28 @@
 }
 
 body{
-    background: #d6e3ec;
+    background: #3d3d3d;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 header{
     display: flex;
     justify-content: space-between;
     align-items: center;
     text-align: center;
     padding: 10px;
-    background: #009879;
+    background: #389dff;
     font-size: 25px;
-    color: #ffffff;
+    color: rgb(255, 255, 255);
 }
 
 header img{
     width: 10vh;
     height: 10vh;
+}
+
+header span {
+    margin-left: 100px;
 }
 
 main {
@@ -47,7 +52,8 @@ main {
     justify-content: center;
     border: 1px solid #dddddd;
     border-radius: 10px;
-    background: whitesmoke;
+    background: #389dff;
+    color: #ffffff;
 }
 
 .info-header {
@@ -71,13 +77,14 @@ main {
 
 .tabela-resumo {
     margin: 50px 100px;
-    background: whitesmoke;
+    background: #ffffff;
     border-collapse: collapse;
     font-size: 0.9em;
+    color: #3d3d3d;
 }
 
 .tabela-resumo thead tr {
-    background-color: #009879;
+    background-color: #389dff;
     color: #ffffff;
     text-align: left;
     font-weight: bold;

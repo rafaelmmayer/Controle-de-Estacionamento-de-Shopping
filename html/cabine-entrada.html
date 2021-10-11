@@ -4,46 +4,40 @@
         <meta charset = "UTF-8">
         <title>Sistema de entrada</title>
         <link rel="stylesheet" href = "../css/style.css">
-        <script type="text/javascript">
-                function cadastrar () {
-                        var placaCarro = Placa.cadastro.value;
-
-                        if (placaCarro != NaN || cadastro.lenght != 7) {
-                                alert("Quantidade de caracteres invalida");
-                                placa.cadastro.focus();
-                                return false;
-                        }
-                }   
-        </script>
+        
 </head>
 <body>
 
         <header class="header">
                 <img src="..\img\logo.png" alt="Logo">
+                <div class="entrada">
+                        <h1>Cabine de entrada</h1>
+                </div>
                 <nav>
                         <ul>
-                                <li><p>Data: 10/03/2001</p></li>
-                                <li><p>Hora: 12:30</p></li>
+                                <div class = "hora">
+                                        <li><p>Data: 10/03/2001</p></li>
+                                        <li><p>Hora: 12:30</p></li>
+                                </div>
                         </ul>
                 </nav>
                 
         </header>
-        
-        <div class="background">
-                <img src="..\img\corsinhaRebaixado.jpg" alt="Background">
-       </div> 
 
-
-        <div class="estacionamento">
-                <h1>Estacionamento</h1>
-                <h4>Digite a placa do seu veículo:</h4><br>
-                <form class= "placa" name="Placa" action=".\ticket-Entrada.html" method="POST">
-                        cadastro: <input type="text" placeholder="ABC1D23"/>
-                        <input type ="submit" onclick="return cadastrar()">
-                </form>        
+        <div class="caixa">
+                <div class="estacionamento">
+                        <div class="puts">
+                                <h2>Digite a placa do seu veículo:</h2><br><br>
+                                <form action="">
+                                        <input id="nome" name="nome" type="text" placeholder="ABC1D23"/><br><br>
+                                </form>
+                                <a href="ticket-entrada.html"><button class="bnt" type="buttton" onclick="bntvalid(placa)">Cadastrar</button></a>
+                        </div>
+                </div>        
         </div>
         
 
        
 </body>
+<script href="cabine_e_ticket.js"></script>
 </html>

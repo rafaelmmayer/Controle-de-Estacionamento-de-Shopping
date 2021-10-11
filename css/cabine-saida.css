@@ -8,6 +8,7 @@
     text-decoration: none;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     list-style: none;
+    color: #ffffff;
 }
 
 header{
@@ -16,9 +17,8 @@ header{
     align-items: center;
     text-align: center;
     padding: 10px;
-    background: #009879;
+    background: #389dff;
     font-size: 25px;
-    color: #111111;
 }
 
 header img{
@@ -33,19 +33,18 @@ header span {
 h2 {
     text-shadow:.3rem .4rem 2px rgb(0,0,0, .4);
     font-size: 85px;
-    color: white;
     text-align: center;
 }
 
 body {
-    background-color: #d6e3ec;
+    background-color: #3d3d3d;
 }
 
 .form {
     align-items: center;
     box-shadow: .3rem .4rem 2px rgb(0,0,0, .4);
     padding-top: 10px;
-    background-color: rgba(255, 255, 255, 0.986);
+    background-color: #389dff;
     display: flex;
     flex-direction: column;
     border-radius: 12px;

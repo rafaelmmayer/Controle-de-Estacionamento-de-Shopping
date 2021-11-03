@@ -48,5 +48,5 @@ function validaPlacaMoto(placaMoto){
 }
 
 function bntmsg (){
-    alert("Catraca liberada! Pode prosseguir!")
+    alert("Cancela liberada! Pode prosseguir!")
 }

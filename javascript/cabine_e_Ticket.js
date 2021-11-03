@@ -47,3 +47,6 @@ function validaPlacaMoto(placaMoto){
     return placaVald;
 }
 
+function bntmsg (){
+    alert("Catraca liberada! Pode prosseguir!")
+}

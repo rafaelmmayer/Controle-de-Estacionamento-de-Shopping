@@ -94,7 +94,7 @@ body{
 
 .tickets {
     font-size: 25px;
-    padding-top: 20%;
+    padding-top: 10%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -136,4 +136,6 @@ body{
     width: 90%;
    padding-left: 20%;
 }
+
+
 

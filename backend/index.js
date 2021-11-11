@@ -36,6 +36,11 @@ app.get(defaultRoute, async (req, res) => {
                 { status: queryParams.status }
             )
         }
+        else if (queryParams.finalizados){
+            result = await connection.execute(
+                'select PLACA, DATA_ENTRADA, DATA_SAIDA, VALOR_TOTAL, CODIGO from tickets where DATA_SAIDA is not null'
+            )
+        }
         else{ // retornar todos os tickets
             result = await connection.execute('select * from tickets')
         }
@@ -64,23 +69,6 @@ app.get(`${defaultRoute}/:codigo`, async (req, res) => {
         else{
             res.status(404).send(`Ticket ${codigo} não encontrado`)
         }
-    } catch (err){
-        console.log(err)
-        res.status(500).send('Erro interno')
-    } finally {
-        connection.close()        
-    }
-})
-
-// Retorna todos os ticket finalizados
-app.get(`${defaultRoute}/finalizados`, async (req, res) => {
-    let connection
-    try{
-        connection = await connect()
-        let result = await connection.execute(
-            'select PLACA, DATA_ENTRADA, DATA_SAIDA, VALOR_TOTAL, CODIGO from tickets where DATA_SAIDA is not null'
-        )
-        res.send(result.rows)
     } catch (err){
         console.log(err)
         res.status(500).send('Erro interno')

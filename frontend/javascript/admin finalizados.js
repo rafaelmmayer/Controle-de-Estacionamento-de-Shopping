@@ -10,7 +10,7 @@ function formatDateStr (strDate) {
 }
 
 async function fetchTicket() {
-    let response = await fetch('http://localhost:80/api/tickets/finalizados');
+    let response = await fetch('http://localhost:80/api/tickets?finalizados');
     let tickets = await response.json();
 
     tickets.forEach(obj => {

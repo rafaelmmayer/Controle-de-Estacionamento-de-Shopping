@@ -37,42 +37,34 @@ main {
     margin: 20px 0;
 }
 
-.infos-gerais {
-    display: flex;
+.nav-menu{
     align-items: center;
-    justify-content: space-between;
+    margin-top: 10px;
 }
 
-.infos-gerais div{
-    height: 150px;
-    width: 200px;
+.nav-links {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid #dddddd;
-    border-radius: 10px;
+    justify-content: space-around;
+}
+
+.nav-links li, a {
+    font-weight: 500;
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+.nav-links li {
     background: #389dff;
-    color: #ffffff;
+    padding: 10px;
+    border-radius: 10px;
+    width: 120px;
+    text-align: center;
 }
 
-.info-header {
-    font-size: 30px;
-    font-weight: bold;
-    margin: 20px;
-}
-
-.info {
-    font-size: 20px;
-    margin: 20px;
-}
-
-.lucro {
-    margin-left: 100px;    
-}
-
-.total {
-    margin-right: 100px;
+.nav-links li:hover {
+    background: rgb(56, 157, 255, 0.5);
+    cursor: pointer;
 }
 
 .tabela-resumo {

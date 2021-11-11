@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pr-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/admin.css" media="screen" />
+    <title>Admin</title>
+</head>
+
+<body>
+    <header>
+        <img src="..\img\logo.png" alt="Logo">
+        <span>Sistema de Gerenciamento</span>
+        <nav>
+            <ul>
+                <li>
+                    <p>Data: 10/03/2001</p>
+                </li>
+                <li>
+                    <p>Hora: 12:30</p>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <nav class="nav-menu">
+            <ul class="nav-links">                
+                <li><a href="./admin não pagos.html">Não pagos</a></li>                
+                <li><a href="./admin pagos.html">Pagos</a></li>                
+                <li><a href="./admin finalizados.html">Finalizados</a></li>
+            </ul>
+        </nav>
+        <table class="tabela-resumo">
+            <thead>
+                <tr>
+                    <th>Placa</th>
+                    <th>Data de entrada</th>
+                    <th>Data de saída</th>
+                    <th>Ticket</th>
+                    <th>Valor pago</th>
+                </tr>
+            </thead>
+            <tbody id="tabela-corpo">
+            </tbody>
+        </table>
+        <br>
+    </main>
+    <script src="../javascript/admin finalizados.js"></script>
+</body>
+
+</html>

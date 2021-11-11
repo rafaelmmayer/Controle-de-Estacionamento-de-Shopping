@@ -25,32 +25,19 @@
         </nav>
     </header>
     <main>
-        <div class="infos-gerais">
-            <div class="lucro">
-                <span class="info-header">Lucro</span>
-                <span class="info" id="lucroTotal">0</span>
-            </div>
-            <div>
-                <span class="info-header">Pagos</span>
-                <span class="info" id="qtdPagos">0</span>
-            </div>
-            <div>
-                <span class="info-header">Não pagos</span>
-                <span class="info" id="qtdNaoPagos">0</span>
-            </div>
-            <div class="total">
-                <span class="info-header">Total</span>
-                <span class="info" id="qtdTotal">0</span>
-            </div>
-        </div>
+        <nav class="nav-menu">
+            <ul class="nav-links">                
+                <li><a href="./admin não pagos.html">Não pagos</a></li>                
+                <li><a href="./admin pagos.html">Pagos</a></li>                
+                <li><a href="./admin finalizados.html">Finalizados</a></li>
+            </ul>
+        </nav>
         <table class="tabela-resumo">
             <thead>
                 <tr>
                     <th>Placa</th>
                     <th>Data de entrada</th>
-                    <th>Data de saída</th>
                     <th>Ticket</th>
-                    <th>Status Ticket</th>
                     <th>Valor pago</th>
                 </tr>
             </thead>
@@ -59,8 +46,7 @@
         </table>
         <br>
     </main>
-    <script type="text/javascript" src="../carros.json"></script>
-    <script src="../javascript/admin.js"></script>
+    <script src="../javascript/admin pagos.js"></script>
 </body>
 
 </html>

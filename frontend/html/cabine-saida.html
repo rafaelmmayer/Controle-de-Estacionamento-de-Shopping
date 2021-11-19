@@ -1,41 +1,38 @@
 <!DOCTYPE html>
 
 <html lang="pt-BR">
+
 <head>
-        <meta charset="UTF-8">
-        <title>Cabine De Saída</title>
-        <link rel="stylesheet" href="../css/cabine-saida.css">
+    <meta charset="UTF-8">
+    <title>Cabine De Saída</title>
+    <link rel="stylesheet" href="../css/cabine-saida.css">
 </head>
 
 <body>
-        
-        <header>
-                <img src="..\img\logo.png" alt="Logo">
-                <span>Cabine De Saída</span>
-                <nav>
-                        <ul>
-                                <li>
-                                        <p>Data: 10/03/2001</p>
-                                </li>
-                                <li>
-                                        <p>Hora: 12:30</p>
-                                </li>
-                        </ul>
-                </nav>
-        </header>
-
-        <form class="form" action="#">
-                <label class="label" for="ticket">
-                    <span class="element">Digite o ticket:</span>
-                    <input class="element" type="ticket" id="ticket" placeholder="ABC1D23" name="ticket">
-                </label>
-
-        <button class="btn" type="submit" onclick="return" >ENVIAR</button>      
-        </form>
-
-        <footer> 
-        <p id= "ticket">Ticket: S0D0MABC1D23</p> 
-        <span>horario de saida: 13:50</span>
-        </footer>       
+    <header>
+        <img src="..\img\logo.png" alt="Logo">
+        <span>Cabine De Saída</span>
+        <nav>
+            <ul>
+                <li>
+                    <p>PI 2</p>
+                </li>
+                <li>
+                    <p>Grupo 7</p>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <form class="form" action="#">
+        <label class="label" for="ticket">
+            <span class="element">Digite o ticket:</span>
+            <input class="element" type="ticket" id="ticket" placeholder="S0D0MABC1D" name="ticket">
+        </label>
+        <button class="btn" type="button" onclick="efetuarSaida()">ENVIAR</button>
+    </form>
+    <footer>
+        <span id="mensagem-saida"></span>
+    </footer>
 </body>
+<script src="../javascript/cabine-saida.js"></script>
 </html>

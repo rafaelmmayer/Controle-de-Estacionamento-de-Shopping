@@ -13,12 +13,12 @@
         <img src="..\img\logo.png" alt="Logo">
         <span>Caixa de Cobrança</span>
         <nav>
-            <ul>
-                <p>Data: 10/03/2001</p>
-            </ul>
-            <ul>
-                <p>Hora: 12:30</p>
-            </ul>
+            <li>
+                <p>PI 2</p>
+            </li>
+            <li>
+                <p>Grupo 7</p>
+            </li>
         </nav>
     </header>
 
@@ -26,16 +26,17 @@
         <div class="info-header">
             <h2 class="title">Pague o estacionamento</h2>  
 
+            
             <form class="form" action="#">
                 <label class="label" for="ticket">
                     <span class="element">Preencha o campo abaixo para pagar o ticket do seu estacionamento</span><br><br>
-                    <input autocomplete="off" name="ticketNumber" id="ticketNumber" type="text" placeholder="Digite aqui o seu ticket" pattern="[0-9]*" inputmode="numeric" mask="0000000000-00" required="" class="form-control ng-pristine ng-invalid ng-touched">
+                    <input autocomplete="off" name="ticketNumber" id="ticketNumber" type="text" placeholder="Digite aqui o seu ticket" class="form-control ng-pristine ng-invalid ng-touched">
                 </label>
-
-            <button class="btn" type="submit" onclick="return" >Verificar</button><br><br>
+                
+            <button class="btn" type="button" onclick="verificarTicket()">Verificar</button><br><br>
             
-            <span class="tempo">Tempo de uso do estacionamento: 99:99</span><br>
-            <span class="mensagem">Valor a ser pago: R$9999,99</span><br>
+            <span id="tempo"></span><br>
+            <span id="mensagem"></span><br>
 
             <div class="form-group">
                 <button type="submit" id="submitForm" class="btn btn-success large">Efetivar Pagamento</button>
@@ -47,7 +48,7 @@
                     <li>15 minutos de estadia não é cobrado.</li>
                     <li>Até 3 horas: R$12,00</li>
                     <li>Demais horas: R$1,00</li>
-                    <li>Pernoite: R$40,00 + Tempo de permanência (R$12,00 a cada 1 hora).</li>
+                    <li>Pernoite: R$40,00 + Tempo de permanência</li>
                 </ul>
             </p>
         </element>
@@ -55,9 +56,9 @@
         <table class="tabela-resumo">
             <thead>
                 <tr>
+                    <th>Placa</th>
                     <th>Ticket</th>
-                    <th>Status Ticket</th>
-                    <th>Valor pago</th>
+                    <th>Data Entrada</th>
                 </tr>
             </thead>
             <tbody 
@@ -65,8 +66,6 @@
             </tbody>
         </table>
     </section>
-
-    <script type="text/javascript" src="./carros.json"></script>
     <script src="../javascript/caixa-cobranca.js"></script>
 </body>
 </html>

@@ -16,7 +16,7 @@ header{
     font-size: 20px;
     color: #ffffff; 
     margin: 0;
-    padding: 0;
+    padding: 0 10px;
     text-decoration: none;
     list-style: none;
 
@@ -25,7 +25,6 @@ header{
 header img{
     width: 8vh;
     height: 10vh;
-
 }
 
 section{
@@ -126,14 +125,12 @@ label input {
 .tabela-resumo {
     position: fixed;
     left: 1000px; 
-	top: 160px;
+	top: 220px;
     align-items: baseline;
-    margin: 50px 100px;
     background: #ffffff;
     color: #3d3d3d;
     border-collapse: collapse;
     font-size: 0.9em;
-
 }
 
 .tabela-resumo thead tr {

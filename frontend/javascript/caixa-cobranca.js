@@ -1,71 +1,78 @@
-let lucroTotal = 0
-let qtdPagos = 0
-let qtdNaoPagos = 0
+const url = 'http://localhost:80/api/tickets'
 
-let cars = [
-    {
-        "ticket": "0522ASD4174",
-        "ticketStatus": "Pago",
-        "valorPago": 10.29
-    },
-    {
-        "ticket": "D45AS5D485A",
-        "ticketStatus": "Pago",
-        "valorPago": 10.29
-    },
-    {
-        "ticket": "FEW154FDS65",
-        "ticketStatus": "Não pago",
-        "valorPago": 0
-    },
-    {
-        "ticket": "489EWDF456E",
-        "ticketStatus": "Não pago",
-        "valorPago": 0
-    },
-    {
-        "ticket": "EFW5164DSFC",
-        "ticketStatus": "Pago",
-        "valorPago": 28.45
-    },
-    {
-        "ticket": "WEF4F4E54E8",
-        "ticketStatus": "Não pago",
-        "valorPago": 0
-    },
-    {
-        "ticket": "G5491REERG4",
-        "ticketStatus": "Não pago",
-        "valorPago": 0
-    },
-    {
-        "ticket": "CDVS456DS65",
-        "ticketStatus": "Pago",
-        "valorPago": 28.45
+function formatarMinutosEmHoras(minutos){
+    return formatNumero(Math.floor(minutos / 60)) + ' horas e ' + formatNumero(minutos % 60) + ' minutos';
+}
+
+function formatNumero(num){
+    return num.toString().padStart(2, '0');
+}
+
+function formatDateStr (strDate) {
+    if(!strDate) {
+        return ""
     }
-]
+    let date = new Date(strDate)
+    return `${date.getDate().toString().padStart(2, "0")}/${(date.getMonth()+1).toString().padStart(2, "0")}/${date.getFullYear()} 
+            ${date.getHours().toString().padStart(2, "0")}h${date.getMinutes().toString().padStart(2, "0")}`
+}
 
-let tableResumoEl = document.getElementById('tabela-corpo')
-let qtdPagosEl = document.getElementById('qtdPagos')
-let qtdNaoPagosEl = document.getElementById('qtdNaoPagos')
-let qtdTotalEl = document.getElementById('qtdTotal')
+function verificarTicket(){
+    let codigoTicket = document.getElementById('ticketNumber')
+    fetch(`${url}/pagamento/${codigoTicket.value}`)
+        .then(res => {
+            if(res.status == 200) {
+                return res.json()
+            }
+            else if(res.status == 400) {
+                throw Error('Ticket já pago. Se dirija a caine de saída');
+            }
+            else if(res.status == 404) {
+                throw Error('Ticket não encontrado');
+            }
+            else {
+                throw Error('Erro interno, tente novamente!');
+            }
+        })
+        .then(data => {
+            if(data.minutos == 0){
+                
+            }
+            document.getElementById('tempo').innerHTML = `Tempo: ${formatarMinutosEmHoras(data.minutos)}`;
+            document.getElementById('mensagem').innerHTML = `Valor a pagar: R$ ${data.valor}`;
+        })
+        .catch((err) => {
+            alert(err);
+        })
+}
 
-cars.forEach(obj => {
-    let template = `
-        <tr>
-            <td>${obj["ticket"]}</td>
-            <td>${obj["ticketStatus"]}</td>
-            <td>R$ ${obj["valorPago"].toFixed(2)}</td>
-        </tr>
-    `
-    tableResumoEl.innerHTML += template
-    lucroTotal += obj["valorPago"]
+function loadTicketNaoPagos(){
+    let tableResumoEl = document.getElementById('tabela-corpo')
 
-    if(obj["ticketStatus"] === "Pago"){
-        qtdPagos += 1
-    }
-})
+    fetch(`${url}?status=0`)
+        .then(res => {
+            if(res.status == 200) {
+                return res.json()
+            }
+            else {
+                throw Error('Erro interno, recarregue a página!');
+            }
+        })
+        .then(data => {
+            data.forEach(obj => {
+                let template = `
+                    <tr>
+                        <td>${obj.PLACA}</td>
+                        <td>${obj.CODIGO}</td>
+                        <td>${formatDateStr(obj.DATA_ENTRADA)}</td>
+                    </tr>
+                `
+                tableResumoEl.innerHTML += template
+            })
+        })
+        .catch((err) => {
+            alert(err);
+        })    
+}
 
-qtdPagosEl.innerHTML = qtdPagos + " carros"
-qtdNaoPagosEl.innerHTML = cars.length - qtdPagos + " carros"
-qtdTotalEl.innerHTML = cars.length + " carros"
+loadTicketNaoPagos()

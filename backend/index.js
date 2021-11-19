@@ -12,77 +12,149 @@ oracledb.outFormat = oracledb.OUT_FORMAT_OBJECT;
 
 const defaultRoute = '/api/tickets'
 
-async function connect() {    
-    return await oracledb.getConnection({
+function connect() {
+    return oracledb.getConnection({
         user: dbConfig.dbuser,
         password: dbConfig.dbpassword,
         connectString: dbConfig.connectString
     });
 }
 
-function generateTicket() {
-    return 
+function generateCodigo() {
+    let chars = "0123456789ABCDEFGHIJLMNOPQRSTUVWXYZ";
+    let codigoLength = 10;
+    let codigo = "";
+    for (let i = 0; i < codigoLength; i++) {
+        let randomNumber = Math.floor(Math.random() * chars.length);
+        codigo += chars.substring(randomNumber, randomNumber + 1);
+    }
+    return codigo
+}
+
+function calcularValorAPagar(ticket){
+    let dataAtual = new Date()
+    let dataEntrada = ticket.DATA_ENTRADA
+    let diff = dataAtual.getTime() - dataEntrada.getTime();
+    let minutos = Math.round(diff / 60000);
+
+    if(minutos <= 15) {
+        let res = {
+            minutos: minutos,
+            valor: 0
+        }
+        return res;
+    }
+    else if(minutos <= 180) {
+        let res = {
+            minutos: minutos,
+            valor: 12
+        }
+        return res;
+    }
+    else {
+        let minutosAMais = minutos - 180;
+        let valorTotal = Math.ceil(minutosAMais / 60) + 12;
+
+        let diffDia = new Date().getDate() - dataEntrada.getDate();
+        valorTotal += diffDia * 40;
+
+        let res = {
+            minutos: minutos,
+            valor: valorTotal.toFixed(2)
+        }
+
+        return res;
+    }
 }
 
 app.get(defaultRoute, async (req, res) => {
     let connection
-    try{
+    try {
         let result
         const queryParams = req.query
         connection = await connect()
-        if(queryParams.status){ // retorna tickets com status que veio da query
+        if (queryParams.status) { // retorna tickets com status que veio da query
             result = await connection.execute(
                 'select PLACA, DATA_ENTRADA, VALOR_TOTAL, CODIGO from tickets where STATUS=:status',
                 { status: queryParams.status }
             )
         }
-        else if (queryParams.finalizados){
+        else if (queryParams.finalizados) {
             result = await connection.execute(
                 'select PLACA, DATA_ENTRADA, DATA_SAIDA, VALOR_TOTAL, CODIGO from tickets where DATA_SAIDA is not null'
             )
         }
-        else{ // retornar todos os tickets
+        else { // retornar todos os tickets
             result = await connection.execute('select * from tickets')
         }
-        res.send(result.rows)
-    } catch (err){
+        res.json(result.rows)
+    } catch (err) {
         console.log(err)
-        res.status(500).send('Erro interno')
+        res.status(500).json('Erro interno')
     } finally {
-        connection.close()        
+        connection.close()
     }
 })
 
 // retorna ticket a partir de um código
 app.get(`${defaultRoute}/:codigo`, async (req, res) => {
     let connection
-    try{
+    try {
         const codigo = req.params.codigo
         connection = await connect()
         let result = await connection.execute(
             'select * from tickets where CODIGO=:codigo and ROWNUM=1',
             { codigo: codigo }
         )
-        if(result.rows.length > 0){
-            res.send(result.rows[0])
+        if (result.rows.length > 0) {
+            res.json(result.rows[0])
         }
-        else{
-            res.status(404).send(`Ticket ${codigo} não encontrado`)
+        else {
+            res.status(404).json(codigo)
         }
-    } catch (err){
+    } catch (err) {
         console.log(err)
-        res.status(500).send('Erro interno')
+        res.status(500).json('Erro interno')
     } finally {
-        connection.close()        
+        connection.close()
     }
 })
 
-// Adiciona ticket no banco de dados
+// Retorna valor a pagar
+app.get(`${defaultRoute}/pagamento/:codigo`, async (req, res) => {
+    let connection
+    try {
+        const codigo = req.params.codigo
+        connection = await connect()
+        let result = await connection.execute(
+            'select * from tickets where CODIGO=:codigo and ROWNUM=1',
+            { codigo: codigo }
+        )
+        if (result.rows.length > 0) {
+            if(result.rows[0].STATUS){
+                res.status(400).json(`Ticket ${codigo} já pago. Se dirija a cabina de saída`);
+            }
+            else {
+                res.json(calcularValorAPagar(result.rows[0]));
+            }
+        }
+        else {
+            res.status(404).json(`Ticket ${codigo} não encontrado`);
+        }
+    } catch (err) {
+        console.log(err);
+        res.status(500).json('Erro interno');
+    } finally {
+        connection.close()
+    }
+})
+
+// Adiciona placa no banco de dados
 app.post(defaultRoute, async (req, res) => {
     let connection
     try {
         let ticket = {
-            codigo: generateTicket(),
+            codigo: generateCodigo(),
             dataEntrada: new Date(),
             placa: req.body.placa
         }
@@ -91,12 +163,12 @@ app.post(defaultRoute, async (req, res) => {
             `insert into tickets 
             (CODIGO, STATUS, DATA_ENTRADA, PLACA) values 
             (:codigo, 0, :dataEntrada, :placa)`,
-            ticket
+            { codigo: ticket.codigo, dataEntrada: ticket.dataEntrada, placa: ticket.placa }
         )
-        res.status(201).send(`Ticket ${ticket.codigo} criado`)
+        res.status(201).json(`Ticket ${ticket.codigo} criado`)
     } catch (err) {
         console.log(err)
-        res.status(500).send('Erro interno')
+        res.status(500).json('Erro interno')
     } finally {
         connection.close()
     }
@@ -112,19 +184,19 @@ app.put(`${defaultRoute}/pagamento/`, async (req, res) => {
             'select ID from tickets where CODIGO=:codigo and ROWNUM=1',
             { codigo: body.codigo }
         )
-        if(result.rows.length > 0) {
+        if (result.rows.length > 0) {
             let id = result.rows[0].ID
             await connection.execute(
                 'update tickets set VALOR_TOTAL=:valorTotal, STATUS=1 where ID=:id',
                 { valorTotal: body.valorTotal, id: id }
             )
-            res.status(200).send(`Ticket ${body.codigo} pago`)
-        }else {
-            res.status(404).send(`Ticket ${body.codigo} não encontrado`)
+            res.status(200).json(`Ticket ${body.codigo} pago`)
+        } else {
+            res.status(404).json(`Ticket ${body.codigo} não encontrado`)
         }
     } catch (err) {
         console.log(err)
-        res.status(500).send('Erro interno')
+        res.status(500).json('Erro interno')
     } finally {
         connection.close()
     }
@@ -140,23 +212,23 @@ app.put(`${defaultRoute}/saida/:codigo`, async (req, res) => {
             'select ID, STATUS from tickets where CODIGO=:codigo and ROWNUM=1',
             { codigo: codigo }
         )
-        if(result.rows.length > 0) {
+        if (result.rows.length > 0) {
             let ticket = result.rows[0]
-            if(ticket.STATUS == 1){
+            if (ticket.STATUS == 1) {
                 await connection.execute(
                     'update tickets set DATA_SAIDA=:dataSaida where ID=:id',
                     { dataSaida: new Date(), id: ticket.ID }
                 )
-                res.status(200).send(`Ticket ${codigo} liberado`)
+                res.status(200).json(`Ticket ${codigo} liberado, obrigado e volte sempre!`)
             } else {
-                res.status(400).send(`Ticket ${codigo} não pago`)
-            }            
-        }else {
-            res.status(404).send(`Ticket ${codigo} não encontrado`)
+                res.status(400).json(`Ticket ${codigo} não pago, por favor retorne ao Caixa de Cobrança!`)
+            }
+        } else {
+            res.status(404).json(`Ticket ${codigo} não encontrado`)
         }
     } catch (err) {
         console.log(err)
-        res.status(500).send('Erro interno')
+        res.status(500).json('Erro interno')
     } finally {
         connection.close()
     }

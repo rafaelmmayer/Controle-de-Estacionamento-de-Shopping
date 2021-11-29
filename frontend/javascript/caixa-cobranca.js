@@ -22,7 +22,7 @@ function verificarTicket(){
     let codigoTicket = document.getElementById('codigoTicket')
     document.getElementById('mensagem-verificacao-tempo').innerHTML = ''
     document.getElementById('mensagem-verificacao-valor').innerHTML = ''
-    fetch(`${url}/pagamento/${codigoTicket.value}`)
+    fetch(`${url}/pagamento/${codigoTicket.value}`) // http://localhost:80/api/tickets/pagamento/SIN4QZNSOB
         .then(res => {
             if(res.status == 200) {
                 return res.json()
@@ -95,7 +95,7 @@ function loadTicketNaoPagos(){
     document.getElementById('mensagem-verificacao-tempo').innerHTML = ''
     document.getElementById('mensagem-verificacao-valor').innerHTML = ''
 
-    fetch(`${url}?status=0`)
+    fetch(`${url}?status=0`) // http://localhost:80/api/tickets?status=0
         .then(res => {
             if(res.status == 200) {
                 return res.json()

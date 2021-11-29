@@ -1,4 +1,3 @@
-let tableResumoEl = document.getElementById('tabela-corpo')
 
 function formatDateStr (strDate) {
     if(!strDate) {
@@ -6,10 +5,11 @@ function formatDateStr (strDate) {
     }
     let date = new Date(strDate)
     return `${date.getDate().toString().padStart(2, "0")}/${(date.getMonth()+1).toString().padStart(2, "0")}/${date.getFullYear()} 
-            ${date.getHours().toString().padStart(2, "0")}h${date.getMinutes().toString().padStart(2, "0")}`
+    ${date.getHours().toString().padStart(2, "0")}h${date.getMinutes().toString().padStart(2, "0")}`
 }
 
 async function fetchTicket() {
+    let tableResumoEl = document.getElementById('tabela-corpo')
     let response = await fetch('http://localhost:80/api/tickets?status=0');
     let tickets = await response.json();
 

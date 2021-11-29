@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-
 <html lang="pr-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,52 +8,35 @@
     <link rel="stylesheet" type="text/css" href="../css/caixa-cobranca.css" media="screen" />
     <title>Caixa de Cobrança</title>
 </head>
+
 <body>
     <header>
         <img src="..\img\logo.png" alt="Logo">
         <span>Caixa de Cobrança</span>
         <nav>
-            <li>
-                <p>PI 2</p>
-            </li>
-            <li>
-                <p>Grupo 7</p>
-            </li>
+            <ul>
+                <li>
+                    <p>PI 2</p>
+                </li>
+                <li>
+                    <p>Grupo 7</p>
+                </li>
+            </ul>
         </nav>
     </header>
-
-    <section="" class="Caixa de Pagamento">
-        <div class="info-header">
-            <h2 class="title">Pague o estacionamento</h2>  
-
-            
-            <form class="form" action="#">
-                <label class="label" for="ticket">
-                    <span class="element">Preencha o campo abaixo para pagar o ticket do seu estacionamento</span><br><br>
-                    <input autocomplete="off" name="ticketNumber" id="ticketNumber" type="text" placeholder="Digite aqui o seu ticket" class="form-control ng-pristine ng-invalid ng-touched">
-                </label>
-                
-            <button class="btn" type="button" onclick="verificarTicket()">Verificar</button><br><br>
-            
-            <span id="tempo"></span><br>
-            <span id="mensagem"></span><br>
-
-            <div class="form-group">
-                <button type="submit" id="submitForm" class="btn btn-success large">Efetivar Pagamento</button>
+    <main>
+        <div class="caixa">
+            <div class="container-cobranca">
+                <h2>Digite o código do seu Ticket:</h2><br><br>
+                <input id="codigoTicket" type="text" placeholder="ME2IAF0CNR" /><br><br>
+                <button class="btn" type="buttton" onclick="verificarTicket()">Verificar</button>
+                <p id="mensagem-verificacao-tempo"></p>
+                <p id="mensagem-verificacao-valor"></p>
+                <button class="btn" type="buttton" onclick="efetivarPagamento()">Efetivar Pagamento</button>
+                <p id="mensagem-pagamento"></p>
             </div>
         </div>
-        <element class="valores">
-            <p> Valores:
-                <ul>
-                    <li>15 minutos de estadia não é cobrado.</li>
-                    <li>Até 3 horas: R$12,00</li>
-                    <li>Demais horas: R$1,00</li>
-                    <li>Pernoite: R$40,00 + Tempo de permanência</li>
-                </ul>
-            </p>
-        </element>
-
-        <table class="tabela-resumo">
+        <table class="tabela-tickets-nao-pagos">
             <thead>
                 <tr>
                     <th>Placa</th>
@@ -65,7 +48,6 @@
                 id="tabela-corpo">             
             </tbody>
         </table>
-    </section>
+    </main>
     <script src="../javascript/caixa-cobranca.js"></script>
 </body>
-</html>

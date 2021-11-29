@@ -10,8 +10,6 @@ app.use(express.json())
 oracledb.autoCommit = true;
 oracledb.outFormat = oracledb.OUT_FORMAT_OBJECT;
 
-const defaultRoute = '/api/tickets'
-
 function connect() {
     return oracledb.getConnection({
         user: dbConfig.dbuser,
@@ -67,21 +65,31 @@ function calcularValorAPagar(ticket){
     }
 }
 
+const defaultRoute = '/api/tickets'
+
 app.get(defaultRoute, async (req, res) => {
     let connection
     try {
         let result
         const queryParams = req.query
         connection = await connect()
+        
         if (queryParams.status) { // retorna tickets com status que veio da query
             result = await connection.execute(
                 'select PLACA, DATA_ENTRADA, VALOR_TOTAL, CODIGO from tickets where STATUS=:status',
                 { status: queryParams.status }
             )
         }
-        else if (queryParams.finalizados) {
+        else if (queryParams.finalizados == 1) {
             result = await connection.execute(
                 'select PLACA, DATA_ENTRADA, DATA_SAIDA, VALOR_TOTAL, CODIGO from tickets where DATA_SAIDA is not null'
+            )
+        }
+        else if (queryParams.finalizados == 0) {
+            result = await connection.execute(
+                `select * from tickets
+                where DATA_SAIDA is null
+                and STATUS=1`
             )
         }
         else { // retornar todos os tickets
@@ -165,7 +173,7 @@ app.post(defaultRoute, async (req, res) => {
             (:codigo, 0, :dataEntrada, :placa)`,
             { codigo: ticket.codigo, dataEntrada: ticket.dataEntrada, placa: ticket.placa }
         )
-        res.status(201).json(`Ticket ${ticket.codigo} criado`)
+        res.status(201).json(ticket.codigo)
     } catch (err) {
         console.log(err)
         res.status(500).json('Erro interno')
@@ -185,14 +193,17 @@ app.put(`${defaultRoute}/pagamento/`, async (req, res) => {
             { codigo: body.codigo }
         )
         if (result.rows.length > 0) {
+            if(result.rows[0].STATUS == 1){
+                res.status(400).json(`Ticket ${body.codigo} ja foi pago. Por favor, vá até a cabine de saída`);
+            }
             let id = result.rows[0].ID
             await connection.execute(
                 'update tickets set VALOR_TOTAL=:valorTotal, STATUS=1 where ID=:id',
                 { valorTotal: body.valorTotal, id: id }
             )
-            res.status(200).json(`Ticket ${body.codigo} pago`)
+            res.status(200).json(`Ticket ${body.codigo} pago`);
         } else {
-            res.status(404).json(`Ticket ${body.codigo} não encontrado`)
+            res.status(404).json(`Ticket ${body.codigo} não encontrado`);
         }
     } catch (err) {
         console.log(err)

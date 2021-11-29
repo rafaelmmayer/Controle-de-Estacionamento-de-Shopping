@@ -23,16 +23,31 @@
             </ul>
         </nav>
     </header>
-    <form class="form" action="#">
-        <label class="label" for="ticket">
-            <span class="element">Digite o ticket:</span>
-            <input class="element" type="ticket" id="ticket" placeholder="S0D0MABC1D" name="ticket">
-        </label>
-        <button class="btn" type="button" onclick="efetuarSaida()">ENVIAR</button>
-    </form>
-    <footer>
-        <span id="mensagem-saida"></span>
-    </footer>
+    <main>
+        <div class="caixa-saida">
+            <form class="form">
+                <label class="label" for="ticket">
+                    <span class="element">Digite o ticket:</span>
+                    <input class="element" type="ticket" id="ticket" placeholder="ME2IAF0CNR" name="ticket">
+                </label>
+                <button class="btn" type="button" onclick="efetuarSaida()">ENVIAR</button>
+            </form>
+            <span id="mensagem-saida"></span>
+        </div>
+        <table class="tabela-tickets-nao-pagos">
+            <thead>
+                <tr>
+                    <th>Placa</th>
+                    <th>Ticket</th>
+                    <th>Data Entrada</th>
+                    <th>Valor Pago</th>
+                </tr>
+            </thead>
+            <tbody 
+            id="tabela-corpo">             
+        </tbody>
+    </table>
+</main>
 </body>
 <script src="../javascript/cabine-saida.js"></script>
 </html>

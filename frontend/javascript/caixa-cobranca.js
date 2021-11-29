@@ -1,4 +1,5 @@
-const url = 'http://localhost:80/api/tickets'
+const url = 'http://localhost:80/api/tickets';
+let valorTicket = 0;
 
 function formatarMinutosEmHoras(minutos){
     return formatNumero(Math.floor(minutos / 60)) + ' horas e ' + formatNumero(minutos % 60) + ' minutos';
@@ -18,7 +19,9 @@ function formatDateStr (strDate) {
 }
 
 function verificarTicket(){
-    let codigoTicket = document.getElementById('ticketNumber')
+    let codigoTicket = document.getElementById('codigoTicket')
+    document.getElementById('mensagem-verificacao-tempo').innerHTML = ''
+    document.getElementById('mensagem-verificacao-valor').innerHTML = ''
     fetch(`${url}/pagamento/${codigoTicket.value}`)
         .then(res => {
             if(res.status == 200) {
@@ -35,19 +38,62 @@ function verificarTicket(){
             }
         })
         .then(data => {
-            if(data.minutos == 0){
-                
+            if(data.valor == 0){
+                document.getElementById('mensagem-verificacao-tempo').innerHTML = `Ticket ainda dentro dos 15 minutos.`;
             }
-            document.getElementById('tempo').innerHTML = `Tempo: ${formatarMinutosEmHoras(data.minutos)}`;
-            document.getElementById('mensagem').innerHTML = `Valor a pagar: R$ ${data.valor}`;
+            else {
+                document.getElementById('mensagem-verificacao-tempo').innerHTML = `Tempo: ${formatarMinutosEmHoras(data.minutos)}`;
+                valorTicket = data.valor;
+                document.getElementById('mensagem-verificacao-valor').innerHTML = `Valor a pagar: R$ ${data.valor}`;
+            }
         })
         .catch((err) => {
             alert(err);
         })
 }
 
+function efetivarPagamento(){
+    let codigoTicket = document.getElementById('codigoTicket')
+    fetch(`${url}/pagamento`, {
+        method: 'PUT',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            codigo: codigoTicket.value,
+            valorTotal: valorTicket
+        })
+    })
+    .then(res => {
+        if(res.status == 200) {
+            return res.json()
+        }
+        else if(res.status == 400) {
+            throw Error(`Ticket ja foi pago. Por favor, vá até a Cabine de Saída`);
+        }
+        else if(res.status == 404) {
+            throw Error('Ticket não encontrado');
+        }
+        else {
+            throw Error('Erro interno, tente novamente!');
+        }
+    })
+    .then(data => {
+        alert(data)
+        codigoTicket.value = ''
+        loadTicketNaoPagos()
+    })
+    .catch((err) => {
+        alert(err);
+    });
+}
+
 function loadTicketNaoPagos(){
     let tableResumoEl = document.getElementById('tabela-corpo')
+    tableResumoEl.innerHTML = ''
+    document.getElementById('mensagem-verificacao-tempo').innerHTML = ''
+    document.getElementById('mensagem-verificacao-valor').innerHTML = ''
 
     fetch(`${url}?status=0`)
         .then(res => {

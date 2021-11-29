@@ -12,7 +12,6 @@ function formatDateStr (strDate) {
 async function fetchTicket() {
     let response = await fetch('http://localhost:80/api/tickets?status=1');
     let tickets = await response.json();
-
     tickets.forEach(obj => {
         let template = `
             <tr>

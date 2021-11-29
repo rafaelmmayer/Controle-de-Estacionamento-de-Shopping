@@ -1,9 +1,15 @@
-body{
+* {
+    padding: 0;
     margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-align: left;
+    box-sizing: border-box;
+    vertical-align: baseline;
+    list-style: none;
+    border: 0;
+}
+
+body{
     background: #3d3d3d;
-    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 header{
@@ -13,148 +19,100 @@ header{
     text-align: center;
     padding: 10px;
     background: #389dff;
-    font-size: 20px;
-    color: #ffffff; 
-    margin: 0;
-    padding: 0 10px;
-    text-decoration: none;
-    list-style: none;
-
+    font-size: 25px;
+    color: rgb(255, 255, 255);
 }
 
 header img{
-    width: 8vh;
+    width: 10vh;
     height: 10vh;
 }
 
-section{
+header span {
+    margin-left: 100px;
+}
+
+main {
     display: grid;
-    margin: 20px 0;
-
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
 }
 
-.title{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.caixa {
+    margin-top: 40px;
+    width: 500px;
+    height: 400px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    border: 1px solid rgb(214, 227, 236);
-    border-radius: 10px;
-    background: #3d3d3d;
-    color: #ffffff;
-    font-size: 25px;
-    padding: 20px;
-    margin: 20px;
-}
-
-.form {
     align-items: center;
-    box-shadow: .3rem .4rem 2px rgb(0,0,0, .4);
-    padding-top: 10px;
-    background-color: #389dff;
-    display: flex;
-    flex-direction: column;
-    border-radius: 12px;
-    height: 140px;
-    width: 300px;
-    margin-top: 1%;
-    margin-left: 40%;
-    position: fixed;
-
+    text-align: center;
+    background: #389dff;
+    box-shadow: 5px 5px 5px 4px rgba(0, 0, 0, 0.7);
+    border-radius: 20px;
+    color: rgb(255, 255, 255);
 }
 
-.label {
-    
-    display: flex;
-    flex-direction: column;
+#codigoTicket {
+    border-radius: 10px;
     width: 200px;
-
-}
-
-.element  {
-    outline: none;
-    margin-top: 5px;
-    border-radius: 12px;
+    height: 20px;
     text-align: center;
-
-}
-
-label input {
-    padding: 0 0.5rem;
-    color: #10141b;
-    border: 2px solid #3d3d3d;
-    text-align: center;
-
 }
 
 .btn {
+    position: relative;
+    transition: all 0.5s ease;
     background-color: rgb(14, 146, 36);
-    height: 40px;
-    width: 120px;
-    border-radius: 12px;
-    margin-top: 30px;
+    border: .2rem solid #000000;
+    color: #000000;
     cursor: pointer;
-    color: white;
-    
+    display: inline-block;
+    font-family: "GilroySemiBold";
+    font-size: 20px;
+    padding: 13px 34px;
+    color:white;
 }
 
-.btn:hover {
-    background-color: rgb(14, 146, 36);
-    transition-duration: 500ms ;
-
+#mensagem-verificacao-tempo, #mensagem-verificacao-valor {
+    padding: 10px;
 }
 
-.valores {
-    position: fixed;
-	top: 700px;
-    align-items: baseline;
-    background: #389dff;
-    border-collapse: separate;
-    font-size: 0.9em;
-    display: flex;
-    flex-direction: column;
-    border-radius: 12px;
-    height: 200px;
-    width: 360px;
-    left: 100px; 
-    top: 250px;
-	
+#mensagem-pagamento {
+    padding: 20px;
 }
 
-.tabela-resumo {
-    position: fixed;
-    left: 1000px; 
-	top: 220px;
+.tabela-tickets-nao-pagos {
+    width: 500px;
+    height: 500px;
+    margin-top: 40px;
     align-items: baseline;
     background: #ffffff;
     color: #3d3d3d;
     border-collapse: collapse;
-    font-size: 0.9em;
+    font-size: 0.9em;  
 }
 
-.tabela-resumo thead tr {
+.tabela-tickets-nao-pagos thead tr {
     background-color: #389dff;
     color: #ffffff;
     text-align: left;
     font-weight: bold;
-    position: sticky;
-    top: 0;
-
 }
 
-.tabela-resumo th,
-.tabela-resumo td {
-  padding: 12px 15px;
-
+.tabela-tickets-nao-pagos th,
+.tabela-tickets-nao-pagos td {
+    padding: 12px 15px;
+    
 }
 
-.tabela-resumo tbody tr {
+.tabela-tickets-nao-pagos tbody {
+    height: 0;
+}
+
+.tabela-tickets-nao-pagos tbody tr {
     border-bottom: 1px solid #dddddd;
-
 }
 
 table, th, td {
     border:1px solid black;
-    
 }

@@ -1,5 +1,3 @@
-let tableResumoEl = document.getElementById('tabela-corpo')
-
 function formatDateStr (strDate) {
     if(!strDate) {
         return ""
@@ -10,7 +8,8 @@ function formatDateStr (strDate) {
 }
 
 async function fetchTicket() {
-    let response = await fetch('http://localhost:80/api/tickets?finalizados');
+    let tableResumoEl = document.getElementById('tabela-corpo')
+    let response = await fetch('http://localhost:80/api/tickets?finalizados=1');
     let tickets = await response.json();
 
     tickets.forEach(obj => {

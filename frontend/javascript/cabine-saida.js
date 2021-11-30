@@ -23,11 +23,7 @@ function efetuarSaida(){
     }
 
     fetch(`${url}/saida/${codigoTicket.value}`, {
-            method: 'PUT',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
+            method: 'PUT'
         })
         .then(res => {
             if(res.status == 200) {

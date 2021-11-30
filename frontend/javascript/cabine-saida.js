@@ -46,7 +46,6 @@ function efetuarSaida(){
         .then(data => {
             document.getElementById('mensagem-saida').innerHTML = data
             codigoTicket.value = ''
-            loadTicketNaoPagos()
         })
         .catch((err) => {
             alert(err);
@@ -58,7 +57,7 @@ function loadTicketNaoPagos(){
     tableResumoEl.innerHTML = ''
     document.getElementById('tabela-corpo').innerHTML = ''
 
-    fetch(`${url}?finalizados=0`)
+    fetch(url)
         .then(res => {
             if(res.status == 200) {
                 return res.json()
@@ -74,7 +73,6 @@ function loadTicketNaoPagos(){
                         <td>${obj.PLACA}</td>
                         <td>${obj.CODIGO}</td>
                         <td>${formatDateStr(obj.DATA_ENTRADA)}</td>
-                        <td>R$ ${obj.VALOR_TOTAL.toFixed(2)}</td>
                     </tr>
                 `
                 tableResumoEl.innerHTML += template

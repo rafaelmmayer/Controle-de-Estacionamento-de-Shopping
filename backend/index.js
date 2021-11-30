@@ -220,7 +220,7 @@ app.put(`${defaultRoute}/saida/:codigo`, async (req, res) => {
         const codigo = req.params.codigo
         connection = await connect()
         let result = await connection.execute(
-            'select ID, STATUS from tickets where CODIGO=:codigo and ROWNUM=1',
+            'select * from tickets where CODIGO=:codigo and ROWNUM=1',
             { codigo: codigo }
         )
         if (result.rows.length > 0) {
@@ -231,8 +231,19 @@ app.put(`${defaultRoute}/saida/:codigo`, async (req, res) => {
                     { dataSaida: new Date(), id: ticket.ID }
                 )
                 res.status(200).json(`Ticket ${codigo} liberado, obrigado e volte sempre!`)
+
             } else {
-                res.status(400).json(`Ticket ${codigo} não pago, por favor retorne ao Caixa de Cobrança!`)
+                if(calcularValorAPagar(ticket).valor == 0) {
+                    await connection.execute(
+                        'update tickets set DATA_SAIDA=:dataSaida, STATUS=1, VALOR_TOTAL=0 where ID=:id',
+                        { dataSaida: new Date(), id: ticket.ID }
+                    )
+                    res.status(200).json(`Ticket ${codigo} na tolerância de 15 minutos, obrigado e volte sempre!`)
+                }
+
+                else {
+                    res.status(400).json(`Ticket ${codigo} não pago, por favor retorne ao Caixa de Cobrança!`)
+                }
             }
         } else {
             res.status(404).json(`Ticket ${codigo} não encontrado`)
